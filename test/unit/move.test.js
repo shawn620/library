@@ -24,6 +24,7 @@ const nextModified = () => {
 }
 const updateFile = () => {}
 
+// NB: The move feature is currently disabled - see move.js.
 describe('Move files', () => {
   describe('results from getFolders', async () => {
     let folders
@@ -151,7 +152,7 @@ describe('Move files', () => {
       })
     })
 
-    describe('cache interaction', () => {
+    describe.skip('cache interaction', () => {
       describe('when specified file id has no associated html stored in cache', () => {
         before(() => {
           const getCacheStub = sinon.stub(cache, 'get')
@@ -165,7 +166,7 @@ describe('Move files', () => {
         })
       })
 
-      describe('when cache errors', () => {
+      describe.skip('when cache errors', () => {
         before(async () => {
           await cache.add(fileId, nextModified(), path, html)
 
